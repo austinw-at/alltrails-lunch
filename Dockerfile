@@ -1,5 +1,5 @@
 FROM ruby:3.0
-RUN apt-get update -qq && apt-get install -y postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 WORKDIR /alltrails-lunch
 COPY Gemfile /alltrails-lunch/Gemfile
 COPY Gemfile.lock /alltrails-lunch/Gemfile.lock
