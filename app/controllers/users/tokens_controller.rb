@@ -14,7 +14,6 @@ class Users::TokensController < ApplicationController
   private
 
   def set_user
-    pp params
     @user = User.find(params[:id])
   end
 

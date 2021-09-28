@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       patch :tokens, to: "users/tokens#update"
     end
   end
+
+  post "search", to: "search#index", format: :json
 end

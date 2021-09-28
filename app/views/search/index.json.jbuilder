@@ -1,0 +1,1 @@
+json.array! @results, partial: "search/result", as: :search_result

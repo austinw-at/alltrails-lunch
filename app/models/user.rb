@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  encrypts :token
+  encrypts :token, deterministic: true
 
   before_create :set_token
 
