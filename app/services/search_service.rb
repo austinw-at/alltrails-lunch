@@ -20,7 +20,6 @@ class SearchService < ApplicationService
   private
 
   def search_results
-    pp places_search.body
     res = JSON.parse(places_search.body)
 
     res["status"] == "OK" ? build_results(res) : []
@@ -39,7 +38,6 @@ class SearchService < ApplicationService
 
     uri.query = URI.encode_www_form(params)
 
-    pp uri
     Net::HTTP.get_response(uri)
   end
 
