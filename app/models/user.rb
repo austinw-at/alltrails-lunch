@@ -7,6 +7,6 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   def set_token
-    self.token = SecureRandom.hex if self.token.nil?
+    self.token = SecureRandom.hex if token.nil?
   end
 end

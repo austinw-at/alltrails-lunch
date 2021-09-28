@@ -1,0 +1,12 @@
+inherit_gem:
+  rubocop-github:
+    - config/default_edge.yml
+    - config/rails_edge.yml
+AllCops:
+  TargetRubyVersion: 3.0
+  NewCops: enable
+  SuggestExtensions: false
+Style/FrozenStringLiteralComment:	
+  Enabled: false
+Style/Documentation:
+  Enabled: false

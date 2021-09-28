@@ -6,12 +6,12 @@ class ApiBaseController < ApplicationController
   private
 
   def authenticate
-    authenticate_user_from_token || render_unauthorized
+    authenticated_user_from_token || render_unauthorized
   end
 
-  def authenticate_user_from_token
+  def authenticated_user_from_token
     authenticate_with_http_token do |token, _options|
-      @user ||= User.find_by(token: token)
+      @authenticated_user_from_token ||= User.find_by(token: token)
     end
   end
 
