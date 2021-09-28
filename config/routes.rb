@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     end
   end
 
-  post "search", to: "search#index", format: :json
+  post "search", to: "api/v1/search_results#index", format: :json
 end
