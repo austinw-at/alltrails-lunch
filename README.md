@@ -2,6 +2,7 @@
 
 ## Setup
 - `docker compose run web bundle install`
+- `docker compose run web bundle exec rails db:setup`
 - `docker compose up`
 
 App is available @ localhost:3000
