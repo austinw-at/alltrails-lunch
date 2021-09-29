@@ -3,6 +3,10 @@ class ApiBaseController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :authenticate
 
+  def current_user
+    @authenticated_user_from_token
+  end
+
   private
 
   def authenticate
