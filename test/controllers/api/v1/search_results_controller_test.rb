@@ -13,6 +13,8 @@ class SearchResultsControllerTest < ActionDispatch::IntegrationTest
       }, as: :json
 
       assert_response :success
+      assert_match favorites(:one).place_id, @response.body
+      assert_match "favorited\":true", @response.body
     end
   end
 

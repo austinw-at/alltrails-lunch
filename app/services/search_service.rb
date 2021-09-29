@@ -5,12 +5,13 @@ class SearchService < ApplicationService
   RADIUS = 2000
   TYPE = "restaurant".freeze
 
-  def initialize(search_params)
+  def initialize(search_params, user)
     super()
 
     @query = search_params["query"]
     @latlong = search_params["latlong"]
     @type = search_params["type"]&.presence || TYPE
+    @user = user
   end
 
   def call
@@ -45,12 +46,14 @@ class SearchService < ApplicationService
     results["results"].map do |result|
       latlong = "#{result['geometry']['location']['lat']},#{result['geometry']['location']['lng']}"
       photo_ref = result.dig("photos", 0, "photo_reference")
+      favorited = Favorite.find_by(place_id: result["place_id"], user: @user).present?
 
       SearchResult.new(
         id: result["place_id"],
         name: result["name"],
         location: latlong,
-        photo_reference: photo_ref
+        photo_reference: photo_ref,
+        favorited: favorited
       )
     end
   end
