@@ -22,8 +22,4 @@ class SearchResultsControllerTest < ActionDispatch::IntegrationTest
     }
     assert_response :unprocessable_entity, "param is missing or the value is empty: search"
   end
-
-  def token_auth(token)
-    ActionController::HttpAuthentication::Token.encode_credentials(token)
-  end
 end

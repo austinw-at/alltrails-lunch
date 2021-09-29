@@ -11,8 +11,16 @@ module Api
         if @favorite.save
           render :show
         else
-          render :error
+          render :error, status: :unprocessable_entity
         end
+      end
+
+      def destroy
+        @favorite = Favorite.find(params[:id])
+
+        @favorite.destroy
+
+        head :no_content
       end
 
       private

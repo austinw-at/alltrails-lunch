@@ -20,3 +20,7 @@ module ActiveSupport
     # Add more helper methods to be used by all tests here...
   end
 end
+
+def token_auth(token)
+  ActionController::HttpAuthentication::Token.encode_credentials(token)
+end
