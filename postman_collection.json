@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "91e8fce8-1ced-4df2-986e-53c7007c9827",
+		"name": "AllTrailsAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "a1f0a4b6088613faaf3b2775a25bf78e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "search[query]",
+							"value": "wings",
+							"description": "Search query string",
+							"type": "text"
+						},
+						{
+							"key": "search[latlong]",
+							"value": "40.2969,-111.6946",
+							"description": "latlong center point of radius search",
+							"type": "text"
+						},
+						{
+							"key": "search[type]",
+							"value": "",
+							"description": "type of place. Defaults to 'restaurant' if nothing is passed in",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/search",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Favorites",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "a1f0a4b6088613faaf3b2775a25bf78e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/favorites",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"favorites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Favorites",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "a1f0a4b6088613faaf3b2775a25bf78e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "favorite[place_id]",
+							"value": "{{place_id}}",
+							"description": "The Google Places \"Place ID\"",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/favorites",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"favorites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Favorites",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/favorites/{{favorite_id}}",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"favorites",
+						"{{favorite_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "a1f0a4b6088613faaf3b2775a25bf78e"
+		},
+		{
+			"key": "place_id",
+			"value": "ChIJJVDIj4WaTYcRR5cYyFx9ooI"
+		}
+	]
+}
